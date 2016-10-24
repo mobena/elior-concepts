@@ -65,16 +65,6 @@
                                             </a>
                                         </li>
                                     {% endif %}
-
-                                    {# CRUD dropdown menu for ROLE_ADMIN only #}
-                                    {% if is_granted('ROLE_ADMIN') %}
-                                        <li class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">CRUD<i class="fa"></i> <span class="caret"></span></a>
-                                            <ul class="dropdown-menu locales" role="menu">
-                                                <li><a href="{{ path('admin_ordertype_index') }}" >order type</a></li>
-                                            </ul>
-                                        </li>
-                                    {% endif %}
                                 {% endblock %}
 
                                 {% if app.user %}
