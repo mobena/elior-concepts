@@ -47,8 +47,8 @@ class BlogController extends Controller
      *     could move this annotation to any other controller while maintaining
      *     the route name and therefore, without breaking any existing link.
      *
-     * @Route("/", name="admin_index")
-     * @Route("/", name="admin_post_index")
+     * @Route("/blog", name="admin_index")
+     * @Route("/blog", name="admin_post_index")
      * @Method("GET")
      */
     public function indexAction()
