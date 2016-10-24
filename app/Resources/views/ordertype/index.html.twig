@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>OrderType list</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Label</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for orderType in orderTypes %}
+            <tr>
+                <td><a href="{{ path('admin_ordertype_show', { 'id': orderType.id }) }}">{{ orderType.id }}</a></td>
+                <td>{{ orderType.label }}</td>
+                <td>
+                    <a href="{{ path('admin_ordertype_show', { 'id': orderType.id }) }}">show</a>
+                    &nbsp;
+                    <a href="{{ path('admin_ordertype_edit', { 'id': orderType.id }) }}">edit</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_ordertype_new') }}">Create a new entry</a>
+{% endblock %}
