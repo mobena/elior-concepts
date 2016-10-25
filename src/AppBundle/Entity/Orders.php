@@ -102,7 +102,7 @@ class Orders
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\OrderStatus")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $currentOrderStatus;
 
