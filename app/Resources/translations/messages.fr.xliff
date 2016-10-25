@@ -210,7 +210,7 @@
             </trans-unit>
             <trans-unit id="help.browse_admin">
                 <source>help.browse_admin</source>
-                <target><![CDATA[Parcourir le<strong>Beck END</strong> de Elior Concepts.]]></target>
+                <target><![CDATA[Parcourir le <strong>Back END</strong> de Elior Concepts.]]></target>
             </trans-unit>
             <trans-unit id="help.login_users">
                 <source>help.login_users</source>
