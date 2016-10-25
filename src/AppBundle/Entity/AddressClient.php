@@ -5,6 +5,8 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use AppBundle\Entity\User;
 use AppBundle\Entity\Client;
+use AppBundle\Entity\AddressType;
+use AppBundle\Entity\Country;
 
 /**
  * AddressClient
@@ -92,6 +94,18 @@ class AddressClient
      * @ORM\Column(name="deleted_at", type="datetime", nullable=true)
      */
     private $deletedAt;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\AddressType")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $addressType;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Country")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $country;
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Client")
@@ -412,6 +426,38 @@ class AddressClient
     public function setUpdator($updator)
     {
         $this->updator = $updator;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAddressType()
+    {
+        return $this->addressType;
+    }
+
+    /**
+     * @param mixed $addressType
+     */
+    public function setAddressType($addressType)
+    {
+        $this->addressType = $addressType;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCountry()
+    {
+        return $this->country;
+    }
+
+    /**
+     * @param mixed $country
+     */
+    public function setCountry($country)
+    {
+        $this->country = $country;
     }
 }
 
