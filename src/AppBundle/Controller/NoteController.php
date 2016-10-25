@@ -115,9 +115,12 @@ class NoteController extends Controller
         $form = $this->createDeleteForm($note);
         $form->handleRequest($request);
 
+        // we do not delete physically, but we delete logically
+        $note->setDeletedAt(new \DateTime());
+
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->remove($note);
+            $em->persist($note);
             $em->flush();
         }
 

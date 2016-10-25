@@ -23,7 +23,7 @@
                 <td>{{ note.noteComment }}</td>
                 <td>{% if note.createdAt %}{{ note.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{% if note.updatedAt %}{{ note.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{% if note.deletedAt %}{{ note.deletedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if note.deletedAt %}<span style="background-color: red;">{{ note.deletedAt|date('Y-m-d H:i:s') }}</span>{% endif %}</td>
                 <td>
                     <ul>
                         <li>
