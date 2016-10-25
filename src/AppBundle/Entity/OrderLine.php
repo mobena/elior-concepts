@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use AppBundle\Entity\User;
 use AppBundle\Entity\Orders;
 use AppBundle\Entity\Product;
+use AppBundle\Entity\Supplier;
 
 /**
  * OrderLine
@@ -91,6 +92,12 @@ class OrderLine
      * @ORM\JoinColumn(nullable=false)
      */
     private $product;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Supplier")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $supplier;
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
@@ -373,6 +380,22 @@ class OrderLine
     public function setProduct($product)
     {
         $this->product = $product;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSupplier()
+    {
+        return $this->supplier;
+    }
+
+    /**
+     * @param mixed $supplier
+     */
+    public function setSupplier($supplier)
+    {
+        $this->supplier = $supplier;
     }
 }
 
