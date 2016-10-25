@@ -9,6 +9,8 @@
                 <th>Id</th>
                 <th>Name</th>
                 <th>Notecomment</th>
+                <th>Creator</th>
+                <th>Updator</th>
                 <th>Createdat</th>
                 <th>Updatedat</th>
                 <th>Deletedat</th>
@@ -21,6 +23,8 @@
                 <td><a href="{{ path('admin_note_show', { 'id': note.id }) }}">{{ note.id }}</a></td>
                 <td>{{ note.name }}</td>
                 <td>{{ note.noteComment }}</td>
+                <td>{{ note.creator.username }}</td>
+                <td>{{ note.updator.username }}</td>
                 <td>{% if note.createdAt %}{{ note.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{% if note.updatedAt %}{{ note.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{% if note.deletedAt %}<span style="background-color: red;">{{ note.deletedAt|date('Y-m-d H:i:s') }}</span>{% endif %}</td>
