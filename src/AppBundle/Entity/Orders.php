@@ -118,6 +118,10 @@ class Orders
      */
     private $deletedAt;
 
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime();
+    }
 
     /**
      * Get id

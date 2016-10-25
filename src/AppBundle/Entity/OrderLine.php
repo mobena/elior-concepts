@@ -77,6 +77,22 @@ class OrderLine
      */
     private $deletedAt;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $creator;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $updator;
+
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime();
+    }
 
     /**
      * Get id
@@ -278,6 +294,38 @@ class OrderLine
     public function getDeletedAt()
     {
         return $this->deletedAt;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCreator()
+    {
+        return $this->creator;
+    }
+
+    /**
+     * @param mixed $creator
+     */
+    public function setCreator($creator)
+    {
+        $this->creator = $creator;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUpdator()
+    {
+        return $this->updator;
+    }
+
+    /**
+     * @param mixed $updator
+     */
+    public function setUpdator($updator)
+    {
+        $this->updator = $updator;
     }
 }
 

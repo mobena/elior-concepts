@@ -3,6 +3,8 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use AppBundle\Entity\User;
+use AppBundle\Entity\ClientType;
 
 /**
  * Client
@@ -84,6 +86,28 @@ class Client
      */
     private $deletedAt;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\ClientType")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $clientType;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $creator;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $updator;
+
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime();
+    }
 
     /**
      * Get id
@@ -309,6 +333,54 @@ class Client
     public function getDeletedAt()
     {
         return $this->deletedAt;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getClientType()
+    {
+        return $this->clientType;
+    }
+
+    /**
+     * @param mixed $clientType
+     */
+    public function setClientType($clientType)
+    {
+        $this->clientType = $clientType;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCreator()
+    {
+        return $this->creator;
+    }
+
+    /**
+     * @param mixed $creator
+     */
+    public function setCreator($creator)
+    {
+        $this->creator = $creator;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUpdator()
+    {
+        return $this->updator;
+    }
+
+    /**
+     * @param mixed $updator
+     */
+    public function setUpdator($updator)
+    {
+        $this->updator = $updator;
     }
 }
 
