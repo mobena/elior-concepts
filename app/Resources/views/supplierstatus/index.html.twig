@@ -1,0 +1,39 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block body %}
+    <h1>SupplierStatus list</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Label</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for supplierStatus in supplierStatuses %}
+            <tr>
+                <td><a href="{{ path('admin_supplierstatus_show', { 'id': supplierStatus.id }) }}">{{ supplierStatus.id }}</a></td>
+                <td>{{ supplierStatus.label }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_supplierstatus_show', { 'id': supplierStatus.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_supplierstatus_edit', { 'id': supplierStatus.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_supplierstatus_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}
