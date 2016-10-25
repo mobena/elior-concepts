@@ -1,0 +1,61 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block body %}
+    <h1>Product list</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Shortdescription</th>
+                <th>Longdescription</th>
+                <th>Sku</th>
+                <th>Supplierreference</th>
+                <th>Priceperunitht</th>
+                <th>Product status</th>
+                <th>Creator</th>
+                <th>Updator</th>
+                <th>Createdat</th>
+                <th>Updatedat</th>
+                <th>Deletedat</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for product in products %}
+            <tr>
+                <td><a href="{{ path('admin_product_show', { 'id': product.id }) }}">{{ product.id }}</a></td>
+                <td>{{ product.name }}</td>
+                <td>{{ product.shortDescription }}</td>
+                <td>{{ product.longDescription }}</td>
+                <td>{{ product.sku }}</td>
+                <td>{{ product.supplierReference }}</td>
+                <td>{{ product.pricePerUnitHt }}</td>
+                <td>{{ product.productstatus.label }}</td>
+                <td>{{ product.creator.username }}</td>
+                <td>{{ product.updator.username }}</td>
+                <td>{% if product.createdAt %}{{ product.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if product.updatedAt %}{{ product.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if product.deletedAt %}<span style="background-color: red;">{{ product.deletedAt|date('Y-m-d H:i:s') }}</span>{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_product_show', { 'id': product.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_product_edit', { 'id': product.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_product_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}
