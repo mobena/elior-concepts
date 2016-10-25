@@ -3,6 +3,8 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use AppBundle\Entity\User;
+use AppBundle\Entity\Orders;
 
 /**
  * OrderLine
@@ -76,6 +78,12 @@ class OrderLine
      * @ORM\Column(name="deleted_at", type="datetime", nullable=true)
      */
     private $deletedAt;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Orders")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $order;
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
@@ -326,6 +334,22 @@ class OrderLine
     public function setUpdator($updator)
     {
         $this->updator = $updator;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getOrder()
+    {
+        return $this->order;
+    }
+
+    /**
+     * @param mixed $order
+     */
+    public function setOrder($order)
+    {
+        $this->order = $order;
     }
 }
 

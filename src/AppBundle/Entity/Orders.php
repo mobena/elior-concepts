@@ -26,36 +26,6 @@ class Orders
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\OrderType")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $orderType;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Client")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $client;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\OrderStatus")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $currentOrderStatus;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $creator;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
-     * @ORM\JoinColumn(nullable=true)
-     */
-    private $updator;
-
-    /**
      * @var float
      *
      * @ORM\Column(name="products_total_price", type="float")
@@ -117,6 +87,36 @@ class Orders
      * @ORM\Column(name="deleted_at", type="datetime", nullable=true)
      */
     private $deletedAt;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\OrderType")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $orderType;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Client")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $client;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\OrderStatus")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $currentOrderStatus;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $creator;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $updator;
 
     public function __construct()
     {

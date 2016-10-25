@@ -28,7 +28,6 @@ class OrderType
      */
     private $label;
 
-
     /**
      * Get id
      *

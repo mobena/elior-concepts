@@ -28,7 +28,6 @@ class ClientType
      */
     private $label;
 
-
     /**
      * Get id
      *

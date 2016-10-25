@@ -24,6 +24,20 @@ class OrderStatus
     private $id;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="comment", type="text", nullable=true)
+     */
+    private $comment;
+
+    /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\OrderStatusLabel")
      * @ORM\JoinColumn(nullable=false)
      */
@@ -36,26 +50,16 @@ class OrderStatus
     private $order;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="name", type="string", length=255)
-     */
-    private $name;
-
-    /**
      * @var \DateTime
      *
      * @ORM\Column(name="created_at", type="datetime")
      */
     private $createdAt;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="comment", type="text", nullable=true)
-     */
-    private $comment;
-
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime();
+    }
 
     /**
      * Get id

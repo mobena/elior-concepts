@@ -28,7 +28,6 @@ class OrderStatusLabel
      */
     private $label;
 
-
     /**
      * Get id
      *
