@@ -1,0 +1,53 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block body %}
+    <h1>Supplier list</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Supplier status</th>
+                <th>Creator</th>
+                <th>Updator</th>
+                <th>Createdat</th>
+                <th>Updatedat</th>
+                <th>Deletedat</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for supplier in suppliers %}
+            <tr>
+                <td><a href="{{ path('admin_supplier_show', { 'id': supplier.id }) }}">{{ supplier.id }}</a></td>
+                <td>{{ supplier.name }}</td>
+                <td>{{ supplier.description }}</td>
+                <td>{{ supplier.supplierstatus.label }}</td>
+                <td>{{ supplier.creator.username }}</td>
+                <td>{{ supplier.updator.username }}</td>
+                <td>{% if supplier.createdAt %}{{ supplier.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if supplier.updatedAt %}{{ supplier.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if supplier.deletedAt %}<span style="background-color: red;">{{ supplier.deletedAt|date('Y-m-d H:i:s') }}</span>{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_supplier_show', { 'id': supplier.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_supplier_edit', { 'id': supplier.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_supplier_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}
