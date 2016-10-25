@@ -5,6 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use AppBundle\Entity\User;
 use AppBundle\Entity\Orders;
+use AppBundle\Entity\Product;
 
 /**
  * OrderLine
@@ -84,6 +85,12 @@ class OrderLine
      * @ORM\JoinColumn(nullable=false)
      */
     private $order;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Product")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $product;
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
@@ -350,6 +357,22 @@ class OrderLine
     public function setOrder($order)
     {
         $this->order = $order;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getProduct()
+    {
+        return $this->product;
+    }
+
+    /**
+     * @param mixed $product
+     */
+    public function setProduct($product)
+    {
+        $this->product = $product;
     }
 }
 
