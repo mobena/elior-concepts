@@ -1,0 +1,30 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block body %}
+    <h1>ClientType list</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Label</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for clientType in clientTypes %}
+            <tr>
+                <td><a href="{{ path('admin_clienttype_show', { 'id': clientType.id }) }}">{{ clientType.id }}</a></td>
+                <td>{{ clientType.label }}</td>
+                <td>
+                    <a href="{{ path('admin_clienttype_show', { 'id': clientType.id }) }}">show</a>
+                    &nbsp;
+                    <a href="{{ path('admin_clienttype_edit', { 'id': clientType.id }) }}">edit</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_clienttype_new') }}">Create a new entry</a>
+{% endblock %}

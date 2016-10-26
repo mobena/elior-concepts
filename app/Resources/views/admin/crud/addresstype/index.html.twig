@@ -17,23 +17,14 @@
                 <td><a href="{{ path('admin_addresstype_show', { 'id': addressType.id }) }}">{{ addressType.id }}</a></td>
                 <td>{{ addressType.label }}</td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('admin_addresstype_show', { 'id': addressType.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('admin_addresstype_edit', { 'id': addressType.id }) }}">edit</a>
-                        </li>
-                    </ul>
+                    <a href="{{ path('admin_addresstype_show', { 'id': addressType.id }) }}">show</a>
+                    &nbsp;
+                    <a href="{{ path('admin_addresstype_edit', { 'id': addressType.id }) }}">edit</a>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('admin_addresstype_new') }}">Create a new entry</a>
-        </li>
-    </ul>
+    <a href="{{ path('admin_addresstype_new') }}">Create a new entry</a>
 {% endblock %}
