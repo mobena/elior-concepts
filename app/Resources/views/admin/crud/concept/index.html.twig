@@ -1,0 +1,44 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block body %}
+    <h1>Concept list</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Concept Status</th>
+                <th>Creator</th>
+                <th>Updator</th>
+                <th>Createdat</th>
+                <th>Updatedat</th>
+                <th>Deletedat</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for concept in concepts %}
+            <tr>
+                <td><a href="{{ path('admin_concept_show', { 'id': concept.id }) }}">{{ concept.id }}</a></td>
+                <td>{{ concept.name }}</td>
+                <td>{{ concept.description }}</td>
+                <td>{{ concept.conceptstatus.label }}</td>
+                <td>{{ concept.creator.username }}</td>
+                <td>{{ concept.updator.username }}</td>
+                <td>{% if concept.createdAt %}{{ concept.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if concept.updatedAt %}{{ concept.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if concept.deletedAt %}{{ concept.deletedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <a href="{{ path('admin_concept_show', { 'id': concept.id }) }}">show</a>
+                    &nbsp;
+                    <a href="{{ path('admin_concept_edit', { 'id': concept.id }) }}">edit</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_concept_new') }}">Create a new entry</a>
+{% endblock %}

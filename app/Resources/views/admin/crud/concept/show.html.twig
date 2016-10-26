@@ -1,0 +1,48 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block body %}
+    <h1>Concept</h1>
+
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ concept.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ concept.name }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ concept.description }}</td>
+            </tr>
+            <tr>
+                <th>Createdat</th>
+                <td>{% if concept.createdAt %}{{ concept.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Updatedat</th>
+                <td>{% if concept.updatedAt %}{{ concept.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Deletedat</th>
+                <td>{% if concept.deletedAt %}{{ concept.deletedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_concept_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('admin_concept_edit', { 'id': concept.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
