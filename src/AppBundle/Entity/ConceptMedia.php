@@ -4,16 +4,16 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use AppBundle\Entity\User;
-use AppBundle\Entity\Product;
-use AppBundle\Entity\ProductMediaType;
+use AppBundle\Entity\Concept;
+use AppBundle\Entity\ConceptMediaType;
 
 /**
- * ProductMedia
+ * ConceptMedia
  *
- * @ORM\Table(name="product_media")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\ProductMediaRepository")
+ * @ORM\Table(name="concept_media")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\ConceptMediaRepository")
  */
-class ProductMedia
+class ConceptMedia
 {
     /**
      * @var int
@@ -74,16 +74,16 @@ class ProductMedia
     private $deletedAt;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\ProductMediaType")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Concept")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $productMediaType;
+    private $concept;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Product")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\ConceptMediaType")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $product;
+    private $conceptMediaType;
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
@@ -117,7 +117,7 @@ class ProductMedia
      *
      * @param string $name
      *
-     * @return ProductMedia
+     * @return ConceptMedia
      */
     public function setName($name)
     {
@@ -141,7 +141,7 @@ class ProductMedia
      *
      * @param string $description
      *
-     * @return ProductMedia
+     * @return ConceptMedia
      */
     public function setDescription($description)
     {
@@ -165,7 +165,7 @@ class ProductMedia
      *
      * @param string $comment
      *
-     * @return ProductMedia
+     * @return ConceptMedia
      */
     public function setComment($comment)
     {
@@ -189,7 +189,7 @@ class ProductMedia
      *
      * @param string $mediaPath
      *
-     * @return ProductMedia
+     * @return ConceptMedia
      */
     public function setMediaPath($mediaPath)
     {
@@ -213,7 +213,7 @@ class ProductMedia
      *
      * @param \DateTime $createdAt
      *
-     * @return ProductMedia
+     * @return ConceptMedia
      */
     public function setCreatedAt($createdAt)
     {
@@ -237,7 +237,7 @@ class ProductMedia
      *
      * @param \DateTime $updatedAt
      *
-     * @return ProductMedia
+     * @return ConceptMedia
      */
     public function setUpdatedAt($updatedAt)
     {
@@ -261,7 +261,7 @@ class ProductMedia
      *
      * @param \DateTime $deletedAt
      *
-     * @return ProductMedia
+     * @return ConceptMedia
      */
     public function setDeletedAt($deletedAt)
     {
@@ -278,70 +278,6 @@ class ProductMedia
     public function getDeletedAt()
     {
         return $this->deletedAt;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getProductMediaType()
-    {
-        return $this->productMediaType;
-    }
-
-    /**
-     * @param mixed $productMediaType
-     */
-    public function setProductMediaType($productMediaType)
-    {
-        $this->productMediaType = $productMediaType;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getProduct()
-    {
-        return $this->product;
-    }
-
-    /**
-     * @param mixed $product
-     */
-    public function setProduct($product)
-    {
-        $this->product = $product;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getCreator()
-    {
-        return $this->creator;
-    }
-
-    /**
-     * @param mixed $creator
-     */
-    public function setCreator($creator)
-    {
-        $this->creator = $creator;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getUpdator()
-    {
-        return $this->updator;
-    }
-
-    /**
-     * @param mixed $updator
-     */
-    public function setUpdator($updator)
-    {
-        $this->updator = $updator;
     }
 }
 
