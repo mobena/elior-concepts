@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Controller\Admin;
+namespace AppBundle\Controller\Admin\Crud;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -28,7 +28,7 @@ class ConceptStatusController extends Controller
 
         $conceptStatuses = $em->getRepository('AppBundle:ConceptStatus')->findAll();
 
-        return $this->render('conceptstatus/index.html.twig', array(
+        return $this->render('admin/crud/conceptstatus/index.html.twig', array(
             'conceptStatuses' => $conceptStatuses,
         ));
     }
@@ -53,7 +53,7 @@ class ConceptStatusController extends Controller
             return $this->redirectToRoute('admin_conceptstatus_show', array('id' => $conceptStatus->getId()));
         }
 
-        return $this->render('conceptstatus/new.html.twig', array(
+        return $this->render('admin/crud/conceptstatus/new.html.twig', array(
             'conceptStatus' => $conceptStatus,
             'form' => $form->createView(),
         ));
@@ -69,7 +69,7 @@ class ConceptStatusController extends Controller
     {
         $deleteForm = $this->createDeleteForm($conceptStatus);
 
-        return $this->render('conceptstatus/show.html.twig', array(
+        return $this->render('admin/crud/conceptstatus/show.html.twig', array(
             'conceptStatus' => $conceptStatus,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -95,7 +95,7 @@ class ConceptStatusController extends Controller
             return $this->redirectToRoute('admin_conceptstatus_edit', array('id' => $conceptStatus->getId()));
         }
 
-        return $this->render('conceptstatus/edit.html.twig', array(
+        return $this->render('admin/crud/conceptstatus/edit.html.twig', array(
             'conceptStatus' => $conceptStatus,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

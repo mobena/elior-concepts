@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Controller\Admin;
+namespace AppBundle\Controller\Admin\Crud;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -28,7 +28,7 @@ class ProductMediaTypeController extends Controller
 
         $productMediaTypes = $em->getRepository('AppBundle:ProductMediaType')->findAll();
 
-        return $this->render('productmediatype/index.html.twig', array(
+        return $this->render('admin/crud/productmediatype/index.html.twig', array(
             'productMediaTypes' => $productMediaTypes,
         ));
     }
@@ -53,7 +53,7 @@ class ProductMediaTypeController extends Controller
             return $this->redirectToRoute('admin_productmediatype_show', array('id' => $productMediaType->getId()));
         }
 
-        return $this->render('productmediatype/new.html.twig', array(
+        return $this->render('admin/crud/productmediatype/new.html.twig', array(
             'productMediaType' => $productMediaType,
             'form' => $form->createView(),
         ));
@@ -69,7 +69,7 @@ class ProductMediaTypeController extends Controller
     {
         $deleteForm = $this->createDeleteForm($productMediaType);
 
-        return $this->render('productmediatype/show.html.twig', array(
+        return $this->render('admin/crud/productmediatype/show.html.twig', array(
             'productMediaType' => $productMediaType,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -95,7 +95,7 @@ class ProductMediaTypeController extends Controller
             return $this->redirectToRoute('admin_productmediatype_edit', array('id' => $productMediaType->getId()));
         }
 
-        return $this->render('productmediatype/edit.html.twig', array(
+        return $this->render('admin/crud/productmediatype/edit.html.twig', array(
             'productMediaType' => $productMediaType,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

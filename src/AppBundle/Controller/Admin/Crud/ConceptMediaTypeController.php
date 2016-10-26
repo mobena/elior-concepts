@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Controller\Admin;
+namespace AppBundle\Controller\Admin\Crud;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -28,7 +28,7 @@ class ConceptMediaTypeController extends Controller
 
         $conceptMediaTypes = $em->getRepository('AppBundle:ConceptMediaType')->findAll();
 
-        return $this->render('conceptmediatype/index.html.twig', array(
+        return $this->render('admin/crud/conceptmediatype/index.html.twig', array(
             'conceptMediaTypes' => $conceptMediaTypes,
         ));
     }
@@ -53,7 +53,7 @@ class ConceptMediaTypeController extends Controller
             return $this->redirectToRoute('admin_conceptmediatype_show', array('id' => $conceptMediaType->getId()));
         }
 
-        return $this->render('conceptmediatype/new.html.twig', array(
+        return $this->render('admin/crud/conceptmediatype/new.html.twig', array(
             'conceptMediaType' => $conceptMediaType,
             'form' => $form->createView(),
         ));
@@ -69,7 +69,7 @@ class ConceptMediaTypeController extends Controller
     {
         $deleteForm = $this->createDeleteForm($conceptMediaType);
 
-        return $this->render('conceptmediatype/show.html.twig', array(
+        return $this->render('admin/crud/conceptmediatype/show.html.twig', array(
             'conceptMediaType' => $conceptMediaType,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -95,7 +95,7 @@ class ConceptMediaTypeController extends Controller
             return $this->redirectToRoute('admin_conceptmediatype_edit', array('id' => $conceptMediaType->getId()));
         }
 
-        return $this->render('conceptmediatype/edit.html.twig', array(
+        return $this->render('admin/crud/conceptmediatype/edit.html.twig', array(
             'conceptMediaType' => $conceptMediaType,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

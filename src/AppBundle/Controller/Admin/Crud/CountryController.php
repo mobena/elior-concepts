@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Controller\Admin;
+namespace AppBundle\Controller\Admin\Crud;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -28,7 +28,7 @@ class CountryController extends Controller
 
         $countries = $em->getRepository('AppBundle:Country')->findAll();
 
-        return $this->render('country/index.html.twig', array(
+        return $this->render('admin/crud/country/index.html.twig', array(
             'countries' => $countries,
         ));
     }
@@ -53,7 +53,7 @@ class CountryController extends Controller
             return $this->redirectToRoute('admin_country_show', array('id' => $country->getId()));
         }
 
-        return $this->render('country/new.html.twig', array(
+        return $this->render('admin/crud/country/new.html.twig', array(
             'country' => $country,
             'form' => $form->createView(),
         ));
@@ -69,7 +69,7 @@ class CountryController extends Controller
     {
         $deleteForm = $this->createDeleteForm($country);
 
-        return $this->render('country/show.html.twig', array(
+        return $this->render('admin/crud/country/show.html.twig', array(
             'country' => $country,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -95,7 +95,7 @@ class CountryController extends Controller
             return $this->redirectToRoute('admin_country_edit', array('id' => $country->getId()));
         }
 
-        return $this->render('country/edit.html.twig', array(
+        return $this->render('admin/crud/country/edit.html.twig', array(
             'country' => $country,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

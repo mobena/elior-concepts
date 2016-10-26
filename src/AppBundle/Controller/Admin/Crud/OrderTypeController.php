@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Controller\Admin;
+namespace AppBundle\Controller\Admin\Crud;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -28,7 +28,7 @@ class OrderTypeController extends Controller
 
         $orderTypes = $em->getRepository('AppBundle:OrderType')->findAll();
 
-        return $this->render('ordertype/index.html.twig', array(
+        return $this->render('admin/crud/ordertype/index.html.twig', array(
             'orderTypes' => $orderTypes,
         ));
     }
@@ -53,7 +53,7 @@ class OrderTypeController extends Controller
             return $this->redirectToRoute('admin_ordertype_show', array('id' => $orderType->getId()));
         }
 
-        return $this->render('ordertype/new.html.twig', array(
+        return $this->render('admin/crud/ordertype/new.html.twig', array(
             'orderType' => $orderType,
             'form' => $form->createView(),
         ));
@@ -69,7 +69,7 @@ class OrderTypeController extends Controller
     {
         $deleteForm = $this->createDeleteForm($orderType);
 
-        return $this->render('ordertype/show.html.twig', array(
+        return $this->render('admin/crud/ordertype/show.html.twig', array(
             'orderType' => $orderType,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -95,7 +95,7 @@ class OrderTypeController extends Controller
             return $this->redirectToRoute('admin_ordertype_edit', array('id' => $orderType->getId()));
         }
 
-        return $this->render('ordertype/edit.html.twig', array(
+        return $this->render('admin/crud/ordertype/edit.html.twig', array(
             'orderType' => $orderType,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

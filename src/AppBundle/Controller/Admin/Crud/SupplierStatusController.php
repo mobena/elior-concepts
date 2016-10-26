@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Controller\Admin;
+namespace AppBundle\Controller\Admin\Crud;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -28,7 +28,7 @@ class SupplierStatusController extends Controller
 
         $supplierStatuses = $em->getRepository('AppBundle:SupplierStatus')->findAll();
 
-        return $this->render('supplierstatus/index.html.twig', array(
+        return $this->render('admin/crud/supplierstatus/index.html.twig', array(
             'supplierStatuses' => $supplierStatuses,
         ));
     }
@@ -53,7 +53,7 @@ class SupplierStatusController extends Controller
             return $this->redirectToRoute('admin_supplierstatus_show', array('id' => $supplierStatus->getId()));
         }
 
-        return $this->render('supplierstatus/new.html.twig', array(
+        return $this->render('admin/crud/supplierstatus/new.html.twig', array(
             'supplierStatus' => $supplierStatus,
             'form' => $form->createView(),
         ));
@@ -69,7 +69,7 @@ class SupplierStatusController extends Controller
     {
         $deleteForm = $this->createDeleteForm($supplierStatus);
 
-        return $this->render('supplierstatus/show.html.twig', array(
+        return $this->render('admin/crud/supplierstatus/show.html.twig', array(
             'supplierStatus' => $supplierStatus,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -95,7 +95,7 @@ class SupplierStatusController extends Controller
             return $this->redirectToRoute('admin_supplierstatus_edit', array('id' => $supplierStatus->getId()));
         }
 
-        return $this->render('supplierstatus/edit.html.twig', array(
+        return $this->render('admin/crud/supplierstatus/edit.html.twig', array(
             'supplierStatus' => $supplierStatus,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

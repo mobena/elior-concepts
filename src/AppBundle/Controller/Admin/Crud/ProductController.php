@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Controller\Admin;
+namespace AppBundle\Controller\Admin\Crud;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -28,7 +28,7 @@ class ProductController extends Controller
 
         $products = $em->getRepository('AppBundle:Product')->findAll();
 
-        return $this->render('product/index.html.twig', array(
+        return $this->render('admin/crud/product/index.html.twig', array(
             'products' => $products,
         ));
     }
@@ -53,7 +53,7 @@ class ProductController extends Controller
             return $this->redirectToRoute('admin_product_show', array('id' => $product->getId()));
         }
 
-        return $this->render('product/new.html.twig', array(
+        return $this->render('admin/crud/product/new.html.twig', array(
             'product' => $product,
             'form' => $form->createView(),
         ));
@@ -69,7 +69,7 @@ class ProductController extends Controller
     {
         $deleteForm = $this->createDeleteForm($product);
 
-        return $this->render('product/show.html.twig', array(
+        return $this->render('admin/crud/product/show.html.twig', array(
             'product' => $product,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -97,7 +97,7 @@ class ProductController extends Controller
             return $this->redirectToRoute('admin_product_edit', array('id' => $product->getId()));
         }
 
-        return $this->render('product/edit.html.twig', array(
+        return $this->render('admin/crud/product/edit.html.twig', array(
             'product' => $product,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

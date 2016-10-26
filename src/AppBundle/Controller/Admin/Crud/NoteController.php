@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Controller\Admin;
+namespace AppBundle\Controller\Admin\Crud;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -28,7 +28,7 @@ class NoteController extends Controller
 
         $notes = $em->getRepository('AppBundle:Note')->findAll();
 
-        return $this->render('note/index.html.twig', array(
+        return $this->render('admin/crud/note/index.html.twig', array(
             'notes' => $notes,
         ));
     }
@@ -53,7 +53,7 @@ class NoteController extends Controller
             return $this->redirectToRoute('admin_note_show', array('id' => $note->getId()));
         }
 
-        return $this->render('note/new.html.twig', array(
+        return $this->render('admin/crud/note/new.html.twig', array(
             'note' => $note,
             'form' => $form->createView(),
         ));
@@ -69,7 +69,7 @@ class NoteController extends Controller
     {
         $deleteForm = $this->createDeleteForm($note);
 
-        return $this->render('note/show.html.twig', array(
+        return $this->render('admin/crud/note/show.html.twig', array(
             'note' => $note,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -97,7 +97,7 @@ class NoteController extends Controller
             return $this->redirectToRoute('admin_note_edit', array('id' => $note->getId()));
         }
 
-        return $this->render('note/edit.html.twig', array(
+        return $this->render('admin/crud/note/edit.html.twig', array(
             'note' => $note,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
