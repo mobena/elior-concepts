@@ -48,7 +48,7 @@ class UserController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $password = $this->get('security.password_encoder')->encodePassword($user, $user->getPassword());
             $user->setPassword($password);
-            
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
@@ -90,6 +90,8 @@ class UserController extends Controller
         $editForm = $this->createForm('AppBundle\Form\UserType', $user);
         $editForm->handleRequest($request);
 
+        $user->setUpdatedAt(new \DateTime());
+
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $password = $this->get('security.password_encoder')->encodePassword($user, $user->getPassword());
             $user->setPassword($password);
@@ -119,9 +121,11 @@ class UserController extends Controller
         $form = $this->createDeleteForm($user);
         $form->handleRequest($request);
 
+        $user->setDeletedAt(new \DateTime());
+
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->remove($user);
+            $em->persist($user);
             $em->flush();
         }
 
