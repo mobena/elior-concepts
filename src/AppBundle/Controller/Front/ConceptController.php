@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace AppBundle\Controller;
+namespace AppBundle\Controller\Front;
 
 use AppBundle\Entity\Post;
 use AppBundle\Form\PostType;
@@ -32,13 +32,13 @@ class ConceptController extends Controller
     /**
      * Concept Controller
      *
-     * @Route("/", name="concept_index")
+     * @Route("/", name="front_concept_index")
      * @Method("GET")
      */
     public function indexAction()
     {
         //$em = $this->getDoctrine()->getManager();
 
-        return $this->render('concept/index.html.twig', array());
+        return $this->render('front/concept/index.html.twig', array());
     }
 }
