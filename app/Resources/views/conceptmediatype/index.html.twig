@@ -1,0 +1,39 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block body %}
+    <h1>ConceptMediaType list</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Label</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for conceptMediaType in conceptMediaTypes %}
+            <tr>
+                <td><a href="{{ path('admin_conceptmediatype_show', { 'id': conceptMediaType.id }) }}">{{ conceptMediaType.id }}</a></td>
+                <td>{{ conceptMediaType.label }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_conceptmediatype_show', { 'id': conceptMediaType.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_conceptmediatype_edit', { 'id': conceptMediaType.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_conceptmediatype_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}
