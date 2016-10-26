@@ -1,0 +1,32 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block body %}
+    <h1>OrderStatusLabel</h1>
+
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ orderStatusLabel.id }}</td>
+            </tr>
+            <tr>
+                <th>Label</th>
+                <td>{{ orderStatusLabel.label }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_orderstatuslabel_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('admin_orderstatuslabel_edit', { 'id': orderStatusLabel.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block body %}
+    <h1>OrderStatusLabel list</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Label</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for orderStatusLabel in orderStatusLabels %}
+            <tr>
+                <td><a href="{{ path('admin_orderstatuslabel_show', { 'id': orderStatusLabel.id }) }}">{{ orderStatusLabel.id }}</a></td>
+                <td>{{ orderStatusLabel.label }}</td>
+                <td>
+                    <a href="{{ path('admin_orderstatuslabel_show', { 'id': orderStatusLabel.id }) }}">show</a>
+                    &nbsp;
+                    <a href="{{ path('admin_orderstatuslabel_edit', { 'id': orderStatusLabel.id }) }}">edit</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_orderstatuslabel_new') }}">Create a new entry</a>
+{% endblock %}
