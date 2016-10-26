@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace AppBundle\Controller\Admin;
+namespace AppBundle\Controller;
 
 use AppBundle\Entity\Post;
 use AppBundle\Form\PostType;
@@ -21,25 +21,24 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * Controller used to manage dashboard contents in the backend.
+ * Controller used to manage concept contents in the frontend.
  *
- * @Route("/admin/dashboard")
- * @Security("has_role('ROLE_ADMIN')")
+ * @Route("/concept")
  *
  * @author Mohamed Benabdallah <moamben@gmail.com>
  */
-class DashboardController extends Controller
+class ConceptController extends Controller
 {
     /**
-     * Dashboard Controller
+     * Concept Controller
      *
-     * @Route("/", name="admin_dashboard_index")
+     * @Route("/", name="concept_index")
      * @Method("GET")
      */
     public function indexAction()
     {
         //$em = $this->getDoctrine()->getManager();
 
-        return $this->render('admin/dashboard/index.html.twig', array());
+        return $this->render('concept/index.html.twig', array());
     }
 }
