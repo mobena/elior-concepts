@@ -23,7 +23,7 @@ Installation
 
 You can even create the database and load the sample data from the command line:
 
-     $ cd symfony-demo/
+     $ cd elior-concepts/
      $ bin/console doctrine:database:create
      $ bin/console doctrine:schema:create
      $ bin/console doctrine:fixtures:load
