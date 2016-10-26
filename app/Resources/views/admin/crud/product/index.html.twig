@@ -39,23 +39,14 @@
                 <td>{% if product.updatedAt %}{{ product.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{% if product.deletedAt %}<span style="background-color: red;">{{ product.deletedAt|date('Y-m-d H:i:s') }}</span>{% endif %}</td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('admin_product_show', { 'id': product.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('admin_product_edit', { 'id': product.id }) }}">edit</a>
-                        </li>
-                    </ul>
+                    <a href="{{ path('admin_product_show', { 'id': product.id }) }}">show</a>
+                    &nbsp;
+                    <a href="{{ path('admin_product_edit', { 'id': product.id }) }}">edit</a>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('admin_product_new') }}">Create a new entry</a>
-        </li>
-    </ul>
+    <a href="{{ path('admin_product_new') }}">Create a new entry</a>
 {% endblock %}

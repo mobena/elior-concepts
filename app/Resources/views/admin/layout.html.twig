@@ -21,17 +21,20 @@
     <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">CRUD<i class="fa"></i> <span class="caret"></span></a>
         <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+            <li class="dropdown-header">Live Tables</li>
             <li><a href="{{ path('admin_note_index') }}" >Note</a></li>
             <li><a href="{{ path('admin_supplier_index') }}" >Supplier</a></li>
             <li><a href="{{ path('admin_product_index') }}" >Product</a></li>
-            <li class="divider"></li>
-            <li><a href="{{ path('admin_ordertype_index') }}" >Order Type</a></li>
             <li><a href="{{ path('admin_country_index') }}" >Country</a></li>
-            <li><a href="{{ path('admin_productstatus_index') }}" >Product Status</a></li>
+            <li role="separator" class="divider"></li>
+            <li class="dropdown-header">References Tables</li>
+            <li><a href="{{ path('admin_ordertype_index') }}" >Order Type</a></li>
             <li><a href="{{ path('admin_productmediatype_index') }}" >Product Media Type</a></li>
+            <li><a href="{{ path('admin_conceptmediatype_index') }}" >Concept Media Type</a></li>
+            <li><a href="{{ path('admin_productstatus_index') }}" >Product Status</a></li>
             <li><a href="{{ path('admin_supplierstatus_index') }}" >Supplier Status</a></li>
             <li><a href="{{ path('admin_conceptstatus_index') }}" >Concept Status</a></li>
-            <li><a href="{{ path('admin_conceptmediatype_index') }}" >Concept Media Type</a></li>
+
         </ul>
     </li>
 {% endblock %}

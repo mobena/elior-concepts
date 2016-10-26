@@ -17,23 +17,14 @@
                 <td><a href="{{ path('admin_productmediatype_show', { 'id': productMediaType.id }) }}">{{ productMediaType.id }}</a></td>
                 <td>{{ productMediaType.label }}</td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('admin_productmediatype_show', { 'id': productMediaType.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('admin_productmediatype_edit', { 'id': productMediaType.id }) }}">edit</a>
-                        </li>
-                    </ul>
+                    <a href="{{ path('admin_productmediatype_show', { 'id': productMediaType.id }) }}">show</a>
+                    &nbsp;
+                    <a href="{{ path('admin_productmediatype_edit', { 'id': productMediaType.id }) }}">edit</a>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('admin_productmediatype_new') }}">Create a new entry</a>
-        </li>
-    </ul>
+    <a href="{{ path('admin_productmediatype_new') }}">Create a new entry</a>
 {% endblock %}

@@ -17,23 +17,14 @@
                 <td><a href="{{ path('admin_productstatus_show', { 'id': productStatus.id }) }}">{{ productStatus.id }}</a></td>
                 <td>{{ productStatus.label }}</td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('admin_productstatus_show', { 'id': productStatus.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('admin_productstatus_edit', { 'id': productStatus.id }) }}">edit</a>
-                        </li>
-                    </ul>
+                    <a href="{{ path('admin_productstatus_show', { 'id': productStatus.id }) }}">show</a>
+                    &nbsp;
+                    <a href="{{ path('admin_productstatus_edit', { 'id': productStatus.id }) }}">edit</a>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('admin_productstatus_new') }}">Create a new entry</a>
-        </li>
-    </ul>
+    <a href="{{ path('admin_productstatus_new') }}">Create a new entry</a>
 {% endblock %}
