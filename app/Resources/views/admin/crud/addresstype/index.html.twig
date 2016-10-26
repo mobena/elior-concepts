@@ -1,0 +1,39 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block body %}
+    <h1>AddressType list</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Label</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for addressType in addressTypes %}
+            <tr>
+                <td><a href="{{ path('admin_addresstype_show', { 'id': addressType.id }) }}">{{ addressType.id }}</a></td>
+                <td>{{ addressType.label }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_addresstype_show', { 'id': addressType.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_addresstype_edit', { 'id': addressType.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_addresstype_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}
