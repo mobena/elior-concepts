@@ -1,0 +1,51 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block body %}
+    <h1>ConceptMedia list</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Comment</th>
+                <th>Mediapath</th>
+                <th>Createdat</th>
+                <th>Updatedat</th>
+                <th>Deletedat</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for conceptMedia in conceptMedia %}
+            <tr>
+                <td><a href="{{ path('admin_conceptmedia_show', { 'id': conceptMedia.id }) }}">{{ conceptMedia.id }}</a></td>
+                <td>{{ conceptMedia.name }}</td>
+                <td>{{ conceptMedia.description }}</td>
+                <td>{{ conceptMedia.comment }}</td>
+                <td>{{ conceptMedia.mediaPath }}</td>
+                <td>{% if conceptMedia.createdAt %}{{ conceptMedia.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if conceptMedia.updatedAt %}{{ conceptMedia.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if conceptMedia.deletedAt %}{{ conceptMedia.deletedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_conceptmedia_show', { 'id': conceptMedia.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_conceptmedia_edit', { 'id': conceptMedia.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_conceptmedia_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

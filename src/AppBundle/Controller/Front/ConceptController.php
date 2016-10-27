@@ -37,8 +37,12 @@ class ConceptController extends Controller
      */
     public function indexAction()
     {
-        //$em = $this->getDoctrine()->getManager();
+        $em = $this->getDoctrine()->getManager();
 
-        return $this->render('front/concept/index.html.twig', array());
+        $concepts = $em->getRepository('AppBundle:Concept')->findAll();
+
+        return $this->render('front/concept/index.html.twig', array(
+            'concepts' => $concepts,
+        ));
     }
 }

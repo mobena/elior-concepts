@@ -279,5 +279,69 @@ class ConceptMedia
     {
         return $this->deletedAt;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getConcept()
+    {
+        return $this->concept;
+    }
+
+    /**
+     * @param mixed $concept
+     */
+    public function setConcept($concept)
+    {
+        $this->concept = $concept;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getConceptMediaType()
+    {
+        return $this->conceptMediaType;
+    }
+
+    /**
+     * @param mixed $conceptMediaType
+     */
+    public function setConceptMediaType($conceptMediaType)
+    {
+        $this->conceptMediaType = $conceptMediaType;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCreator()
+    {
+        return $this->creator;
+    }
+
+    /**
+     * @param mixed $creator
+     */
+    public function setCreator($creator)
+    {
+        $this->creator = $creator;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUpdator()
+    {
+        return $this->updator;
+    }
+
+    /**
+     * @param mixed $updator
+     */
+    public function setUpdator($updator)
+    {
+        $this->updator = $updator;
+    }
 }
 
