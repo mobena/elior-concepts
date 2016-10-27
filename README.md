@@ -28,6 +28,8 @@ You can even create the database and load the sample data from the command line:
      $ bin/console doctrine:schema:create
      $ bin/console doctrine:fixtures:load
 
+Or even better, just import latest sql extract from web/sql/ and import it in your "elior-concepts" database.
+
 Usage
 -----
 
