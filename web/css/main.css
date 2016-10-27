@@ -1,3 +1,39 @@
 .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
     padding: 4px;
 }
+
+.banner-container {
+    position: relative;
+}
+.banner-name {
+    z-index: 100;
+    position: absolute;
+    color: white;
+    font-weight: bold;
+    left: 5%;
+    top: 1%;
+    background:rgba(0,0,0,0.2);
+    border-radius: 10px;
+    padding: 5px 10px 5px 10px;
+}
+.banner-description {
+    z-index: 100;
+    position: absolute;
+    color: white;
+    font-weight: bold;
+    left: 5%;
+    top: 50%;
+    background:rgba(0,0,0,0.2);
+    border-radius: 10px;
+    padding: 5px 10px 5px 10px;
+}
+.concept-description {
+    text-align: center;
+    padding: 10px 50px 10px 50px;
+}
+.concept-name {
+    text-align: center;
+}
+p {
+    font-size: 14px;
+}

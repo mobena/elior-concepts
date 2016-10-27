@@ -2,8 +2,8 @@
 
 {% block body %}
     <h1>Concepts</h1>
-    {#<img src="{{ asset('img/concept-sample.jpg') }}" class="img-responsive" />#}
 
+    <hr>
     {% for concept in concepts %}
         {% if concept.conceptstatus.id == 1 %}
             <table class="table">
@@ -11,13 +11,27 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>{{ concept.name }}</td>
+                        {% for conceptMedia in conceptsMedia[concept.id] %}
+                            {% if conceptMedia.conceptmediatype.id == 3 %} {# banner type #}
+                            <td>
+                                <div class="banner-container">
+                                    <h3 class="banner-name" class="txt-responsive">{{ conceptMedia.name }}</h3>
+                                    <h5 class="banner-description" class="txt-responsive">{{ conceptMedia.description }}</h5>
+                                    <img src="{{ asset(conceptMedia.mediapath) }}" class="img-responsive" />
+                                </div>
+                            </td>
+                            {% endif %}
+                        {% endfor %}
                     </tr>
                     <tr>
-                        <td>{{ concept.description }}</td>
+                        <td>
+                        <h3 class="concept-name">{{ concept.name }}</h3>
+                        <p class="concept-description">{{ concept.description }}</p>
+                        </td>
                     </tr>
                 </tbody>
             </table>
         {% endif %}
+        <hr>
     {% endfor %}
 {% endblock %}

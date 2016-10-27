@@ -41,8 +41,18 @@ class ConceptController extends Controller
 
         $concepts = $em->getRepository('AppBundle:Concept')->findAll();
 
+        dump($concepts);
+        foreach ($concepts as $concept) {
+            if ($concept->getConceptStatus()->getId() == 1) {
+                dump($concept->getId());
+                $conceptsMedia[$concept->getId()] = $em->getRepository('AppBundle:ConceptMedia')->findBy(array('concept' => $concept->getId()));
+            }
+        }
+        dump($conceptsMedia);
+
         return $this->render('front/concept/index.html.twig', array(
             'concepts' => $concepts,
+            'conceptsMedia' => $conceptsMedia,
         ));
     }
 }
