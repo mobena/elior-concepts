@@ -11,6 +11,10 @@
                 <th>Description</th>
                 <th>Comment</th>
                 <th>Mediapath</th>
+                <th>Concept</th>
+                <th>Concept media type</th>
+                <th>Creator</th>
+                <th>Updator</th>
                 <th>Createdat</th>
                 <th>Updatedat</th>
                 <th>Deletedat</th>
@@ -25,27 +29,22 @@
                 <td>{{ conceptMedia.description }}</td>
                 <td>{{ conceptMedia.comment }}</td>
                 <td>{{ conceptMedia.mediaPath }}</td>
+                <td>{{ conceptMedia.concept.name }}</td>
+                <td>{{ conceptMedia.conceptmediatype.label }}</td>
+                <td>{{ conceptMedia.creator.username }}</td>
+                <td>{{ conceptMedia.updator.username }}</td>
                 <td>{% if conceptMedia.createdAt %}{{ conceptMedia.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{% if conceptMedia.updatedAt %}{{ conceptMedia.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{% if conceptMedia.deletedAt %}{{ conceptMedia.deletedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('admin_conceptmedia_show', { 'id': conceptMedia.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('admin_conceptmedia_edit', { 'id': conceptMedia.id }) }}">edit</a>
-                        </li>
-                    </ul>
+                    <a href="{{ path('admin_conceptmedia_show', { 'id': conceptMedia.id }) }}">show</a>
+                    &nbsp;
+                    <a href="{{ path('admin_conceptmedia_edit', { 'id': conceptMedia.id }) }}">edit</a>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('admin_conceptmedia_new') }}">Create a new entry</a>
-        </li>
-    </ul>
+    <a href="{{ path('admin_conceptmedia_new') }}">Create a new entry</a>
 {% endblock %}
