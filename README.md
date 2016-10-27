@@ -6,7 +6,7 @@ The Elior Concepts is an application created to show Elior restauration products
 Requirements
 ------------
 
-  * PHP 5.5.9 or higher;
+  * PHP 5.5.9 or higher; PHP 7.0 would be a best !
   * MySQL;
   * and the [usual Symfony application requirements](http://symfony.com/doc/current/reference/requirements.html).
 
