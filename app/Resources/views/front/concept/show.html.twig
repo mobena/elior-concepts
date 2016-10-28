@@ -25,30 +25,63 @@
                     <p class="concept-description">{{ concept.description }}</p>
                 </td>
             </tr>
+            <tr>
+                <td>
+                    <button type="button" class="btn btn-success btn-md add-to-basket-concept">
+                        <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> {{ 'basket.addConceptToBasket'|trans }}
+                    </button>
+                </td>
+            </tr>
             </tbody>
         </table>
         <hr>
         <h1>{{ 'concept.productlist'|trans }}</h1>
         {% for conceptProducts in conceptsProducts %}
+            {% if conceptProducts.product.deletedat == null %}
             <table class="table">
                 <thead>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>
+                        <td class="col-md-2">
                             {{ conceptProducts.product.name }}
+                            <br />
+                            {{ conceptProducts.product.sku }}
+                            <br />
+                            {{ conceptProducts.product.supplierreference }}
                         </td>
-                        <td>
+                        <td class="col-md-2">
+                            {{ conceptProducts.product.shortdescription }}
+                        </td>
+                        <td class="col-md-5">
+                            {{ conceptProducts.product.longdescription }}
+                        </td>
+                        <td class="col-md-2">
                             {% if conceptProducts.isMandatory == 1 %}
                                 {{ 'conceptproduct.mandatory'|trans }}
                             {% else %}
                                 {{ 'conceptproduct.notMandatory'|trans }}
                             {% endif %}
                         </td>
+                        <td class="col-md-2">
+                            {{ conceptProducts.product.productstatus.label }}
+                        </td>
+                        <td class="col-md-2">
+                            {% if conceptProducts.product.productstatus.id == 1 %}
+                                <button type="button" class="btn btn-success btn-md add-to-basket-product">
+                                    <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> {{ 'basket.addToBasket'|trans }}
+                                </button>
+                            {% else %}
+                                <button type="button" class="btn btn-disabled btn-md add-to-basket-product">
+                                    <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> {{ 'basket.addToBasket'|trans }}
+                                </button>
+                            {% endif %}
+                        </td>
                     </tr>
                 </tbody>
             </table>
             <hr>
+            {% endif %}
         {% endfor %}
     {% endfor %}
 {% endblock %}

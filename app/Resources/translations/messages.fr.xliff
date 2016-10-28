@@ -242,11 +242,19 @@
             </trans-unit>
             <trans-unit id="conceptproduct.mandatory">
                 <source>conceptproduct.mandatory</source>
-                <target>Produit obligatoirement rattaché au Concept</target>
+                <target>Produit obligatoire</target>
             </trans-unit>
             <trans-unit id="conceptproduct.notMandatory">
                 <source>conceptproduct.notMandatory</source>
-                <target>Produit librement rattaché au Concept</target>
+                <target>Produit libre</target>
+            </trans-unit>
+            <trans-unit id="basket.addToBasket">
+                <source>basket.addToBasket</source>
+                <target>Ajouter au panier</target>
+            </trans-unit>
+            <trans-unit id="basket.addConceptToBasket">
+                <source>basket.addConceptToBasket</source>
+                <target>Ajouter Concept au panier</target>
             </trans-unit>
         </body>
     </file>
