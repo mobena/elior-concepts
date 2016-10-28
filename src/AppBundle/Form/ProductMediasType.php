@@ -3,6 +3,7 @@
 namespace AppBundle\Form;
 
 use AppBundle\Form\Type\DateTimePickerType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -22,7 +23,7 @@ class ProductMediasType extends AbstractType
             ->add('name')
             ->add('description')
             ->add('comment')
-            ->add('mediaPath')
+            ->add('mediaPath', TextType::class, array('label' => 'Media path (400x400)'))
             ->add('productMediaType', EntityType::class, array(
                 'class' => 'AppBundle:ProductMediaType',
                 'choice_label' => 'label',

@@ -3,6 +3,7 @@
 namespace AppBundle\Form;
 
 use AppBundle\Form\Type\DateTimePickerType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -23,7 +24,7 @@ class ConceptMediasType extends AbstractType
             ->add('name')
             ->add('description')
             ->add('comment')
-            ->add('mediaPath')
+            ->add('mediaPath', TextType::class, array('label' => 'Media path (2000x500)'))
             ->add('createdAt', DateTimePickerType::class, array('disabled' => true))
             ->add('updatedAt', DateTimePickerType::class, array('required' => false, 'disabled' => true))
             ->add('deletedAt', DateTimePickerType::class, array('required' => false, 'disabled' => true))

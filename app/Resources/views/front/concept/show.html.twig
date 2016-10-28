@@ -26,7 +26,7 @@
                 </td>
             </tr>
             <tr>
-                <td>
+                <td style="text-align: right;">
                     <button type="button" class="btn btn-success btn-md add-to-basket-concept">
                         <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> {{ 'basket.addConceptToBasket'|trans }}
                     </button>
@@ -58,9 +58,6 @@
                         <td class="col-md-2" class="bottom-right">
                             {{ conceptProducts.product.shortdescription }}
                         </td>
-                        {#<td class="col-md-5">
-                            {{ conceptProducts.product.longdescription }}
-                        </td>#}
                         <td class="col-md-2" class="bottom-right">
                             {% if conceptProducts.isMandatory == 1 %}
                                 {{ 'conceptproduct.mandatory'|trans }}
@@ -71,7 +68,7 @@
                         <td class="col-md-2" class="bottom-right">
                             {{ conceptProducts.product.productstatus.label }}
                         </td>
-                        <td class="col-md-2" class="bottom-right">
+                        <td class="col-md-2" class="bottom-right" style="text-align: right;">
                             {% if conceptProducts.product.productstatus.id == 1 %}
                                 <button type="button" class="btn btn-success btn-md add-to-basket-product">
                                     <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> {{ 'basket.addToBasket'|trans }}
