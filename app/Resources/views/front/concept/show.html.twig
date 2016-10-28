@@ -56,18 +56,24 @@
                     <tr>
                         <td class="col-md-2" class="bottom-left">
                             {% for conceptsProductMedias in conceptsProductsMedias[conceptProducts.product.id] %}
+                                <a href="{{ path('front_product_show', { 'id': conceptProducts.product.id }) }}">
                                 <img src="{{ asset(conceptsProductMedias.mediapath) }}" class="img-responsive" alt="img-{{ conceptProducts.product.name }}" />
+                                </a>
                             {% endfor %}
                         </td>
                         <td class="col-md-2" class="bottom-right">
+                            <a href="{{ path('front_product_show', { 'id': conceptProducts.product.id }) }}">
                             {{ conceptProducts.product.name }}
                             <br />
                             {{ conceptProducts.product.sku }}
                             <br />
                             {{ conceptProducts.product.supplierreference }}
+                            </a>
                         </td>
                         <td class="col-md-2" class="bottom-right">
+                            <a href="{{ path('front_product_show', { 'id': conceptProducts.product.id }) }}">
                             {{ conceptProducts.product.shortdescription }}
+                            </a>
                         </td>
                         <td class="col-md-2" class="bottom-right">
                             {% if conceptProducts.isMandatory == 1 %}

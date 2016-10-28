@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% for product in products %}
+        <table class="table">
+            <thead>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="text-align: right;">
+                        <button type="button" class="btn btn-success btn-md add-to-basket-product">
+                            <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> {{ 'basket.addToBasket'|trans }}
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h1 class="product-name">{{ product.name }}</h1>
+                        <h3 class="product-description">{{ product.shortdescription }}</h3>
+                        <p>{{ product.longdescription }}</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    {% endfor %}
+{% endblock %}
