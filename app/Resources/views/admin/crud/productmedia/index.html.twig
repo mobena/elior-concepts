@@ -1,0 +1,54 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block body %}
+    <h1>ProductMedia list</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Comment</th>
+                <th>Media path</th>
+                <th>Media type</th>
+                <th>Product</th>
+                <th>Createdat</th>
+                <th>Updatedat</th>
+                <th>Deletedat</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for productMedia in productMedia %}
+            <tr>
+                <td><a href="{{ path('admin_productmedia_show', { 'id': productMedia.id }) }}">{{ productMedia.id }}</a></td>
+                <td>{{ productMedia.name }}</td>
+                <td>{{ productMedia.description }}</td>
+                <td>{{ productMedia.comment }}</td>
+                <td>{{ productMedia.mediaPath }}</td>
+                <td>{{ productMedia.productmediatype.label }}</td>
+                <td>{{ productMedia.product.name }}</td>
+                <td>
+                    {{ productMedia.creator.username }}
+                    <br />
+                    {% if productMedia.createdAt %}{{ productMedia.createdAt|date('Y-m-d H:i:s') }}{% endif %}
+                </td>
+                <td>
+                    {{ productMedia.updator.username }}
+                    <br />
+                    {% if productMedia.updatedAt %}{{ productMedia.updatedAt|date('Y-m-d H:i:s') }}{% endif %}
+                </td>
+                <td>{% if productMedia.deletedAt %}{{ productMedia.deletedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <a href="{{ path('admin_productmedia_show', { 'id': productMedia.id }) }}">show</a>
+                    &nbsp;
+                    <a href="{{ path('admin_productmedia_edit', { 'id': productMedia.id }) }}">edit</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_productmedia_new') }}">Create a new entry</a>
+{% endblock %}

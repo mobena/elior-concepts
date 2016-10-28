@@ -1,0 +1,56 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block body %}
+    <h1>ProductMedia</h1>
+
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ productMedia.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ productMedia.name }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ productMedia.description }}</td>
+            </tr>
+            <tr>
+                <th>Comment</th>
+                <td>{{ productMedia.comment }}</td>
+            </tr>
+            <tr>
+                <th>Mediapath</th>
+                <td>{{ productMedia.mediaPath }}</td>
+            </tr>
+            <tr>
+                <th>Createdat</th>
+                <td>{% if productMedia.createdAt %}{{ productMedia.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Updatedat</th>
+                <td>{% if productMedia.updatedAt %}{{ productMedia.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Deletedat</th>
+                <td>{% if productMedia.deletedAt %}{{ productMedia.deletedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_productmedia_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('admin_productmedia_edit', { 'id': productMedia.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
