@@ -66,16 +66,24 @@ class ConceptController extends Controller
             ->findBy(array('id' => $concept, 'conceptStatus' => 1, 'deletedAt' => null,));
 
         foreach ($concepts as $concept) {
-                $conceptsMedia[$concept->getId()] = $em->getRepository('AppBundle:ConceptMedia')
-                    ->findBy(array('concept' => $concept->getId(), 'deletedAt' => null,));
-                $conceptsProducts = $em->getRepository('AppBundle:ConceptProduct')
-                    ->findBy(array('concept'   => $concept->getId(), 'deletedAt' => null,));
+            $conceptsMedia[$concept->getId()] = $em->getRepository('AppBundle:ConceptMedia')
+                ->findBy(array('concept' => $concept->getId(), 'deletedAt' => null,));
+
+            $conceptsProducts = $em->getRepository('AppBundle:ConceptProduct')
+                ->findBy(array('concept' => $concept->getId(), 'deletedAt' => null,));
+
+            $conceptsProductsMedias = array();
+            foreach ($conceptsProducts as $conceptsProduct) {
+                $conceptsProductsMedias[$conceptsProduct->getProduct()->getId()] = $em->getRepository('AppBundle:ProductMedia')
+                    ->findBy(array('product' => $conceptsProduct->getProduct()->getId(), 'deletedAt' => null,));
+            }
         }
-dump($conceptsProducts);
+
         return $this->render('front/concept/show.html.twig', array(
             'concepts' => $concepts,
             'conceptsMedia' => $conceptsMedia,
             'conceptsProducts' => $conceptsProducts,
+            'conceptsProductsMedias' => $conceptsProductsMedias,
         ));
     }
 }

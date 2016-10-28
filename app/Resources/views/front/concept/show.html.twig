@@ -43,36 +43,41 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="col-md-2">
+                        <td class="col-md-2" class="bottom-left">
+                            {% for conceptsProductMedias in conceptsProductsMedias[conceptProducts.product.id] %}
+                                <img src="{{ asset(conceptsProductMedias.mediapath) }}" class="img-responsive" alt="img-{{ conceptProducts.product.name }}" />
+                            {% endfor %}
+                        </td>
+                        <td class="col-md-2" class="bottom-right">
                             {{ conceptProducts.product.name }}
                             <br />
                             {{ conceptProducts.product.sku }}
                             <br />
                             {{ conceptProducts.product.supplierreference }}
                         </td>
-                        <td class="col-md-2">
+                        <td class="col-md-2" class="bottom-right">
                             {{ conceptProducts.product.shortdescription }}
                         </td>
-                        <td class="col-md-5">
+                        {#<td class="col-md-5">
                             {{ conceptProducts.product.longdescription }}
-                        </td>
-                        <td class="col-md-2">
+                        </td>#}
+                        <td class="col-md-2" class="bottom-right">
                             {% if conceptProducts.isMandatory == 1 %}
                                 {{ 'conceptproduct.mandatory'|trans }}
                             {% else %}
                                 {{ 'conceptproduct.notMandatory'|trans }}
                             {% endif %}
                         </td>
-                        <td class="col-md-2">
+                        <td class="col-md-2" class="bottom-right">
                             {{ conceptProducts.product.productstatus.label }}
                         </td>
-                        <td class="col-md-2">
+                        <td class="col-md-2" class="bottom-right">
                             {% if conceptProducts.product.productstatus.id == 1 %}
                                 <button type="button" class="btn btn-success btn-md add-to-basket-product">
                                     <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> {{ 'basket.addToBasket'|trans }}
                                 </button>
                             {% else %}
-                                <button type="button" class="btn btn-disabled btn-md add-to-basket-product">
+                                <button type="button" class="btn btn-warning disabled btn-md add-to-basket-product">
                                     <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> {{ 'basket.addToBasket'|trans }}
                                 </button>
                             {% endif %}
