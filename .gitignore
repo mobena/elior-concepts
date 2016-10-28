@@ -19,4 +19,4 @@
 /web/bundles/
 .idea/
 /app/DoctrineMigrations/
-/web/media/
+!/web/media/
