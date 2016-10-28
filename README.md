@@ -38,7 +38,7 @@ Just use the built-in web server:
 
 ```bash
 $ cd elior-concepts/
-$ php bin/console server:run
+$ bin/console server:run
 ```
 
 This command will start a web server for the Symfony application. Now you can
@@ -52,3 +52,18 @@ terminal.
 > application, configure it to point at the `web/` directory of the project.
 > For more details, see:
 > http://symfony.com/doc/current/cookbook/configuration/web_server_configuration.html
+
+Developments
+------------
+
+Here are some tips to accelerate your developments.
+
+
+    $ cd elior-concepts/
+    $ bin/console doctrine:generate:entity
+    $ bin/console doctrine:migrations:status
+    $ bin/console doctrine:migrations:diff
+    $ bin/console doctrine:migrations:migrate
+    $ bin/console generate:doctrine:crud
+
+Use with caution.
