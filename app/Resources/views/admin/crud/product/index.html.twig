@@ -8,14 +8,12 @@
             <tr>
                 <th>Id</th>
                 <th>Name</th>
-                <th>Shortdescription</th>
-                <th>Longdescription</th>
+                <th>Short description</th>
+                <th>Long description</th>
                 <th>Sku</th>
-                <th>Supplierreference</th>
-                <th>Priceperunitht</th>
+                <th>Supplier reference</th>
+                <th>Price per unit ht</th>
                 <th>Product status</th>
-                <th>Creator</th>
-                <th>Updator</th>
                 <th>Createdat</th>
                 <th>Updatedat</th>
                 <th>Deletedat</th>
@@ -33,10 +31,16 @@
                 <td>{{ product.supplierReference }}</td>
                 <td>{{ product.pricePerUnitHt }}</td>
                 <td>{{ product.productstatus.label }}</td>
-                <td>{{ product.creator.username }}</td>
-                <td>{{ product.updator.username }}</td>
-                <td>{% if product.createdAt %}{{ product.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{% if product.updatedAt %}{{ product.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    {{ product.creator.username }}
+                    <br />
+                    {% if product.createdAt %}{{ product.createdAt|date('Y-m-d H:i:s') }}{% endif %}
+                </td>
+                <td>
+                    {{ product.updator.username }}
+                    <br />
+                    {% if product.updatedAt %}{{ product.updatedAt|date('Y-m-d H:i:s') }}{% endif %}
+                </td>
                 <td>{% if product.deletedAt %}<span style="background-color: red;">{{ product.deletedAt|date('Y-m-d H:i:s') }}</span>{% endif %}</td>
                 <td>
                     <a href="{{ path('admin_product_show', { 'id': product.id }) }}">show</a>
