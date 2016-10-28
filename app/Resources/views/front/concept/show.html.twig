@@ -7,6 +7,13 @@
             </thead>
             <tbody>
             <tr>
+                <td style="text-align: right;">
+                    <button type="button" class="btn btn-success btn-md add-to-basket-concept">
+                        <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> {{ 'basket.addConceptToBasket'|trans }}
+                    </button>
+                </td>
+            </tr>
+            <tr>
                 {% for conceptMedia in conceptsMedia[concept.id] %}
                     {% if conceptMedia.conceptmediatype.id == 3 %} {# banner type #}
                         <td>
@@ -26,10 +33,14 @@
                 </td>
             </tr>
             <tr>
-                <td style="text-align: right;">
-                    <button type="button" class="btn btn-success btn-md add-to-basket-concept">
-                        <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> {{ 'basket.addConceptToBasket'|trans }}
-                    </button>
+                <td style="text-align: center;">
+                    {% for conceptMedia in conceptsMedia[concept.id] %}
+                        {% if conceptMedia.conceptmediatype.id == 1 %} {# video type #}
+                            <p>
+                                <iframe height="215" src="{{ asset(conceptMedia.mediapath) }}" frameborder="0" allowfullscreen></iframe>
+                            </p>
+                        {% endif %}
+                    {% endfor %}
                 </td>
             </tr>
             </tbody>
