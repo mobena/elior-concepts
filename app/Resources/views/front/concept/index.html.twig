@@ -14,7 +14,7 @@
                         {% for conceptMedia in conceptsMedia[concept.id] %}
                             {% if conceptMedia.conceptmediatype.id == 3 %} {# banner type #}
                             <td>
-                                <a href="{{ path('front_concept_show', { 'id': concept.id }) }}" style="text-decoration: none;">
+                                <a href="{{ path('front_concept_show', { 'id': concept.id }) }}">
                                 <div class="banner-container">
                                     <h3 class="banner-name" class="txt-responsive">{{ conceptMedia.name }}</h3>
                                     <h5 class="banner-description" class="txt-responsive">{{ conceptMedia.description }}</h5>
@@ -27,7 +27,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <a href="{{ path('front_concept_show', { 'id': concept.id }) }}" style="text-decoration: none;">
+                            <a href="{{ path('front_concept_show', { 'id': concept.id }) }}">
                             <h3 class="concept-name">{{ concept.name }}</h3>
                             <p class="concept-description">{{ concept.description }}</p>
                             </a>

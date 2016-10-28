@@ -236,6 +236,10 @@
                 <source>help.more_information</source>
                 <target><![CDATA[Pour plus d'informations, consultez la <a href="http://symfony.com/doc">documentation de Symfony</a>.]]></target>
             </trans-unit>
+            <trans-unit id="concept.productlist">
+                <source>concept.productlist</source>
+                <target>Liste des produits</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

@@ -1,0 +1,44 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block body %}
+    <h1>ConceptProduct list</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Ismandatory</th>
+                <th>Concept</th>
+                <th>Product</th>
+                <th>Creator</th>
+                <th>Updator</th>
+                <th>Createdat</th>
+                <th>Updatedat</th>
+                <th>Deletedat</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for conceptProduct in conceptProducts %}
+            <tr>
+                <td><a href="{{ path('admin_conceptproduct_show', { 'id': conceptProduct.id }) }}">{{ conceptProduct.id }}</a></td>
+                <td>{% if conceptProduct.isMandatory %}Yes{% else %}No{% endif %}</td>
+                <td>{{ conceptProduct.concept.name }}</td>
+                <td>{{ conceptProduct.product.name }}</td>
+                <td>{{ conceptProduct.creator.username }}</td>
+                <td>{{ conceptProduct.updator.username }}</td>
+                <td>{% if conceptProduct.createdAt %}{{ conceptProduct.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if conceptProduct.updatedAt %}{{ conceptProduct.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if conceptProduct.deletedAt %}{{ conceptProduct.deletedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <a href="{{ path('admin_conceptproduct_show', { 'id': conceptProduct.id }) }}">show</a>
+                    &nbsp;
+                    <a href="{{ path('admin_conceptproduct_edit', { 'id': conceptProduct.id }) }}">edit</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_conceptproduct_new') }}">Create a new entry</a>
+{% endblock %}
