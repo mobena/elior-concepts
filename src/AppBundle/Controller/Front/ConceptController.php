@@ -38,16 +38,13 @@ class ConceptController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $concepts = $em->getRepository('AppBundle:Concept')->findAll();
+        $concepts = $em->getRepository('AppBundle:Concept')
+            ->findBy(array('conceptStatus' => 1, 'deletedAt' => null,)); # status enabled, and not deleted ! #
 
-        dump($concepts);
         foreach ($concepts as $concept) {
-            if ($concept->getConceptStatus()->getId() == 1) {
-                dump($concept->getId());
-                $conceptsMedia[$concept->getId()] = $em->getRepository('AppBundle:ConceptMedia')->findBy(array('concept' => $concept->getId()));
-            }
+            $conceptsMedia[$concept->getId()] = $em->getRepository('AppBundle:ConceptMedia')
+                ->findBy(array('concept' => $concept->getId(), 'deletedAt' => null,));
         }
-        dump($conceptsMedia);
 
         return $this->render('front/concept/index.html.twig', array(
             'concepts' => $concepts,
@@ -65,17 +62,20 @@ class ConceptController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $concepts = $em->getRepository('AppBundle:Concept')->findById($concept);
+        $concepts = $em->getRepository('AppBundle:Concept')
+            ->findBy(array('id' => $concept, 'conceptStatus' => 1, 'deletedAt' => null,));
 
         foreach ($concepts as $concept) {
-            if ($concept->getConceptStatus()->getId() == 1) {
-                $conceptsMedia[$concept->getId()] = $em->getRepository('AppBundle:ConceptMedia')->findBy(array('concept' => $concept->getId()));
-            }
+                $conceptsMedia[$concept->getId()] = $em->getRepository('AppBundle:ConceptMedia')
+                    ->findBy(array('concept' => $concept->getId(), 'deletedAt' => null,));
+                $conceptsProducts = $em->getRepository('AppBundle:ConceptProduct')
+                    ->findBy(array('concept'   => $concept->getId(), 'deletedAt' => null,));
         }
-
+dump($conceptsProducts);
         return $this->render('front/concept/show.html.twig', array(
             'concepts' => $concepts,
             'conceptsMedia' => $conceptsMedia,
+            'conceptsProducts' => $conceptsProducts,
         ));
     }
 }

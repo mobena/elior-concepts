@@ -29,5 +29,26 @@
         </table>
         <hr>
         <h1>{{ 'concept.productlist'|trans }}</h1>
+        {% for conceptProducts in conceptsProducts %}
+            <table class="table">
+                <thead>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            {{ conceptProducts.product.name }}
+                        </td>
+                        <td>
+                            {% if conceptProducts.isMandatory == 1 %}
+                                {{ 'conceptproduct.mandatory'|trans }}
+                            {% else %}
+                                {{ 'conceptproduct.notMandatory'|trans }}
+                            {% endif %}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <hr>
+        {% endfor %}
     {% endfor %}
 {% endblock %}

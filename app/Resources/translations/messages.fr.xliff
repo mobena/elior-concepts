@@ -240,6 +240,14 @@
                 <source>concept.productlist</source>
                 <target>Liste des produits</target>
             </trans-unit>
+            <trans-unit id="conceptproduct.mandatory">
+                <source>conceptproduct.mandatory</source>
+                <target>Produit obligatoirement rattaché au Concept</target>
+            </trans-unit>
+            <trans-unit id="conceptproduct.notMandatory">
+                <source>conceptproduct.notMandatory</source>
+                <target>Produit librement rattaché au Concept</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
