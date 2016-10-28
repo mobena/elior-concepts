@@ -24,7 +24,7 @@ class ConceptMediasType extends AbstractType
             ->add('name')
             ->add('description')
             ->add('comment')
-            ->add('mediaPath', TextType::class, array('label' => 'Media path (2000x500)'))
+            ->add('mediaPath', TextType::class, array('label' => 'Media path (2000x500 for banner, 400x400 for image)'))
             ->add('createdAt', DateTimePickerType::class, array('disabled' => true))
             ->add('updatedAt', DateTimePickerType::class, array('required' => false, 'disabled' => true))
             ->add('deletedAt', DateTimePickerType::class, array('required' => false, 'disabled' => true))
