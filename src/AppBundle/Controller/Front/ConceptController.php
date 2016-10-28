@@ -11,8 +11,7 @@
 
 namespace AppBundle\Controller\Front;
 
-use AppBundle\Entity\Post;
-use AppBundle\Form\PostType;
+use AppBundle\Entity\Concept;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
@@ -51,6 +50,30 @@ class ConceptController extends Controller
         dump($conceptsMedia);
 
         return $this->render('front/concept/index.html.twig', array(
+            'concepts' => $concepts,
+            'conceptsMedia' => $conceptsMedia,
+        ));
+    }
+
+    /**
+     * Finds and displays a Concept entity.
+     *
+     * @Route("/{id}", name="front_concept_show")
+     * @Method("GET")
+     */
+    public function showAction(Concept $concept)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $concepts = $em->getRepository('AppBundle:Concept')->findById($concept);
+
+        foreach ($concepts as $concept) {
+            if ($concept->getConceptStatus()->getId() == 1) {
+                $conceptsMedia[$concept->getId()] = $em->getRepository('AppBundle:ConceptMedia')->findBy(array('concept' => $concept->getId()));
+            }
+        }
+
+        return $this->render('front/concept/show.html.twig', array(
             'concepts' => $concepts,
             'conceptsMedia' => $conceptsMedia,
         ));

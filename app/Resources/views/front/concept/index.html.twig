@@ -14,19 +14,23 @@
                         {% for conceptMedia in conceptsMedia[concept.id] %}
                             {% if conceptMedia.conceptmediatype.id == 3 %} {# banner type #}
                             <td>
+                                <a href="{{ path('front_concept_show', { 'id': concept.id }) }}" style="text-decoration: none;">
                                 <div class="banner-container">
                                     <h3 class="banner-name" class="txt-responsive">{{ conceptMedia.name }}</h3>
                                     <h5 class="banner-description" class="txt-responsive">{{ conceptMedia.description }}</h5>
                                     <img src="{{ asset(conceptMedia.mediapath) }}" class="img-responsive" alt="banner-{{ conceptMedia.name }}" />
                                 </div>
+                                </a>
                             </td>
                             {% endif %}
                         {% endfor %}
                     </tr>
                     <tr>
                         <td>
-                        <h3 class="concept-name">{{ concept.name }}</h3>
-                        <p class="concept-description">{{ concept.description }}</p>
+                            <a href="{{ path('front_concept_show', { 'id': concept.id }) }}" style="text-decoration: none;">
+                            <h3 class="concept-name">{{ concept.name }}</h3>
+                            <p class="concept-description">{{ concept.description }}</p>
+                            </a>
                         </td>
                     </tr>
                 </tbody>

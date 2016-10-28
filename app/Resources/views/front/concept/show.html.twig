@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% for concept in concepts %}
+        <table class="table">
+            <thead>
+            </thead>
+            <tbody>
+            <tr>
+                {% for conceptMedia in conceptsMedia[concept.id] %}
+                    {% if conceptMedia.conceptmediatype.id == 3 %} {# banner type #}
+                        <td>
+                            <div class="banner-container">
+                                <h3 class="banner-name" class="txt-responsive">{{ conceptMedia.name }}</h3>
+                                <h5 class="banner-description" class="txt-responsive">{{ conceptMedia.description }}</h5>
+                                <img src="{{ asset(conceptMedia.mediapath) }}" class="img-responsive" alt="banner-{{ conceptMedia.name }}" />
+                            </div>
+                        </td>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>
+                    <h3 class="concept-name">{{ concept.name }}</h3>
+                    <p class="concept-description">{{ concept.description }}</p>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <hr>
+        <h1>Liste des produits</h1>
+    {% endfor %}
+{% endblock %}
