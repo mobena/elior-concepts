@@ -30,7 +30,7 @@ class ProductController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $products = $em->getRepository('AppBundle:Product')
-            ->findBy(array('id' => $product, 'productStatus' => 1, 'deletedAt' => null,));
+            ->findBy(array('id' => $product, 'deletedAt' => null,)); // get all products even those disabled, ie : 'productStatus' => 0,
 
         return $this->render('front/product/show.html.twig', array(
             'products' => $products,

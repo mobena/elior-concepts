@@ -256,6 +256,10 @@
                 <source>basket.addConceptToBasket</source>
                 <target>Ajouter Concept au panier</target>
             </trans-unit>
+            <trans-unit id="button.historyBack">
+                <source>button.historyBack</source>
+                <target>Retour</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

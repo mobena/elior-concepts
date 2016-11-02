@@ -1,6 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <button onclick="window.history.back();" type="button" class="btn btn-info btn-xs">
+        <span class="glyphicon glyphicon-step-backward fa fa-arrow-left" aria-hidden="true"></span> {{ 'button.historyBack'|trans }}
+    </button>
     {% for concept in concepts %}
         <table class="table">
             <thead>
@@ -9,7 +12,7 @@
             <tr>
                 <td style="text-align: right;">
                     <button type="button" class="btn btn-success btn-md add-to-basket-concept">
-                        <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> {{ 'basket.addConceptToBasket'|trans }}
+                        <span class="glyphicon glyphicon-shopping-cart fa fa-cart-arrow-down" aria-hidden="true"></span> {{ 'basket.addConceptToBasket'|trans }}
                     </button>
                 </td>
             </tr>
@@ -88,11 +91,11 @@
                         <td class="col-md-2" class="bottom-right" style="text-align: right;">
                             {% if conceptProducts.product.productstatus.id == 1 %}
                                 <button type="button" class="btn btn-success btn-md add-to-basket-product">
-                                    <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> {{ 'basket.addToBasket'|trans }}
+                                    <span class="glyphicon glyphicon-shopping-cart fa fa-cart-arrow-down" aria-hidden="true"></span> {{ 'basket.addToBasket'|trans }}
                                 </button>
                             {% else %}
                                 <button type="button" class="btn btn-warning disabled btn-md add-to-basket-product">
-                                    <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> {{ 'basket.addToBasket'|trans }}
+                                    <span class="glyphicon glyphicon-shopping-cart fa fa-cart-arrow-down" aria-hidden="true"></span> {{ 'basket.addToBasket'|trans }}
                                 </button>
                             {% endif %}
                         </td>
